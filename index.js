@@ -1,12 +1,15 @@
 const subdomain = require('express-subdomain')
 const express = require('express')
+const http = require('http')
 const app = express()
 const db = require('@cyclic.sh/dynamodb')
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+//app.use(express.urlencoded({ extended: true }))
 
 const routerV1 = express.Router();
+app.use(subdomain('api', routerV1));
+
  
 var options = {
 	dotfiles: 'ignore',
@@ -17,7 +20,7 @@ var options = {
 	redirect: false
 }
 
-routerV1.use(express.static('public', options))
+//routerV1.use(express.static('public', options))
 
 routerV1.get('/', function(req, res) {
 	res.send('Welcome to our API!');
@@ -84,10 +87,14 @@ app.use('*', (req, res) => {
   res.json({ msg: 'no route handler found' }).end()
 })
 
-app.use(subdomain('api', routerV1));
+
+const port = process.env.PORT || 3000
+
+app.set('port', port)
+let server = http.createServer(app);
+
 //app.use(subdomain('api.cautious-garment-elk', routerMain));
 // Start the server
-const port = process.env.PORT || 3000
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`index.js listening on ${port}`)
 })
