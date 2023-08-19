@@ -1,3 +1,4 @@
+const subdomain = require('express-subdomain')
 const express = require('express')
 const app = express()
 const db = require('@cyclic.sh/dynamodb')
@@ -5,20 +6,41 @@ const db = require('@cyclic.sh/dynamodb')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+
+const routerV1 = express.Router();
+const routerV2 = express.Router();
+const routerV3 = express.Router();
+ 
+var options = {
+	dotfiles: 'ignore',
+	etag: false,
+	extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg'],
+	index: ['index.html'],
+	maxAge: '1m',
+	redirect: false
+}
+routerV1.use(express.static('public', options))
+
+routerV1.get('/', function(req, res) {
+    res.send('Welcome to our API!');
+});
+ 
+routerV1.get('/users', function(req, res) {
+    res.json([
+        { name: "Brian" }
+    ]);
+});
+
+app.use(subdomain('api', router));
+app.listen(3000);
 // #############################################################################
 // This configures static hosting for files in /public that have the extensions
 // listed in the array.
- var options = {
-   dotfiles: 'ignore',
-   etag: false,
-   extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg'],
-   index: ['index.html'],
-   maxAge: '1m',
-   redirect: false
- }
- app.use(express.static('public', options))
 // #############################################################################
 
+app.get('/', function(req, res) {
+    res.send('root');
+});
 // Create or Update an item
 app.post('/:col/:key', async (req, res) => {
   console.log(req.body)
