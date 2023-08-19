@@ -87,7 +87,7 @@ app.use('*', (req, res) => {
   res.json({ msg: 'no route handler found' }).end()
 })
 
-app.use(subdomain('api', routerMain));
+app.use(subdomain('api.cautious-garment-elk', routerMain));
 // Start the server
 const port = process.env.PORT || 3000
 app.listen(port, () => {
