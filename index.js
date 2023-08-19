@@ -6,7 +6,6 @@ const db = require('@cyclic.sh/dynamodb')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-
 const routerV1 = express.Router();
 const routerV2 = express.Router();
 const routerMain = express.Router();
@@ -19,18 +18,23 @@ var options = {
 	maxAge: '1m',
 	redirect: false
 }
+
 routerV1.use(express.static('public', options))
 
-routerV1.get('/test', function(req, res) {
+routerV1.get('/', function(req, res) {
 	res.send('Welcome to our API!');
+});
+
+routerV1.get('/test', function(req, res) {
+	res.send('Welcome to our API! Test');
 });
 
 routerV2.get('/', function(req, res) {
 	res.send("V2")
 });
 
-routerMain.use(subdomain('*.v1', routerV1));
-routerMain.use(subdomain('*.v2', routerV2));
+routerMain.use(subdomain('v1', routerV1));
+routerMain.use(subdomain('v2', routerV2));
 
 
 // #############################################################################
