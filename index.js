@@ -32,7 +32,7 @@ routerV1.get('/users', function(req, res) {
 });
 
 app.use(subdomain('api', routerV1));
-app.listen(3000);
+
 // #############################################################################
 // This configures static hosting for files in /public that have the extensions
 // listed in the array.
