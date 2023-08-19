@@ -21,7 +21,7 @@ var options = {
 }
 routerV1.use(express.static('public', options))
 
-routerV1.get('/', function(req, res) {
+routerV1.get('/test', function(req, res) {
 	res.send('Welcome to our API!');
 });
 
