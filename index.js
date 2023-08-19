@@ -27,10 +27,6 @@ routerV1.get('/test', function(req, res) {
 	res.send('Welcome to our API! Test');
 });
 
-routerV2.get('/', function(req, res) {
-	res.send("V2")
-});
-
 // #############################################################################
 // This configures static hosting for files in /public that have the extensions
 // listed in the array.
