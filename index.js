@@ -1,14 +1,9 @@
-const subdomain = require('express-subdomain')
 const express = require('express')
-const http = require('http')
 const app = express()
 const db = require('@cyclic.sh/dynamodb')
 
 app.use(express.json())
-//app.use(express.urlencoded({ extended: true }))
-
-const routerV1 = express.Router();
-app.use(subdomain('api', routerV1));
+app.use(express.urlencoded({ extended: true }))
 
  
 var options = {
@@ -20,15 +15,8 @@ var options = {
 	redirect: false
 }
 
-//routerV1.use(express.static('public', options))
+app.use(express.static('public', options))
 
-routerV1.get('/', function(req, res) {
-	res.send('Welcome to our API!');
-});
-
-routerV1.get('/test', function(req, res) {
-	res.send('Welcome to our API! Test');
-});
 
 // #############################################################################
 // This configures static hosting for files in /public that have the extensions
@@ -90,11 +78,8 @@ app.use('*', (req, res) => {
 
 const port = process.env.PORT || 3000
 
-app.set('port', port)
-let server = http.createServer(app);
-
 //app.use(subdomain('api.cautious-garment-elk', routerMain));
 // Start the server
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`index.js listening on ${port}`)
 })
