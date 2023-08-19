@@ -15,7 +15,7 @@ var options = {
 	redirect: false
 }
 
-app.use(express.static('public', options))
+//app.use(express.static('public', options))
 
 
 // #############################################################################
