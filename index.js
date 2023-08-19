@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }))
 
 const routerV1 = express.Router();
 const routerV2 = express.Router();
-const routerV3 = express.Router();
+const routerMain = express.Router();
  
 var options = {
 	dotfiles: 'ignore',
@@ -22,16 +22,16 @@ var options = {
 routerV1.use(express.static('public', options))
 
 routerV1.get('/', function(req, res) {
-    res.send('Welcome to our API!');
-});
- 
-routerV1.get('/users', function(req, res) {
-    res.json([
-        { name: "Brian" }
-    ]);
+	res.send('Welcome to our API!');
 });
 
-app.use(subdomain('api', routerV1));
+routerV2.get('/', function(req, res) {
+	res.send("V2")
+});
+
+routerMain.use(subdomain('*.v1', routerV1));
+routerMain.use(subdomain('*.v2', routerV2));
+
 
 // #############################################################################
 // This configures static hosting for files in /public that have the extensions
@@ -87,6 +87,7 @@ app.use('*', (req, res) => {
   res.json({ msg: 'no route handler found' }).end()
 })
 
+app.use(subdomain('api', routerMain));
 // Start the server
 const port = process.env.PORT || 3000
 app.listen(port, () => {
