@@ -45,6 +45,9 @@ routerMain.use(subdomain('v2', routerV2));
 app.get('/', function(req, res) {
     res.send('root');
 });
+app.get('/fish', function(req, res) {
+    res.send('Salmon');
+});
 // Create or Update an item
 app.post('/:col/:key', async (req, res) => {
   console.log(req.body)
@@ -91,7 +94,7 @@ app.use('*', (req, res) => {
   res.json({ msg: 'no route handler found' }).end()
 })
 
-app.use(subdomain('api.cautious-garment-elk', routerMain));
+app.use(subdomain('api', routerMain));
 //app.use(subdomain('api.cautious-garment-elk', routerMain));
 // Start the server
 const port = process.env.PORT || 3000
