@@ -120,6 +120,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  background-image: url("building2.jpg");
   background-color: #f1f1f1;
 }
 .home-hero {
