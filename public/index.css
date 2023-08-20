@@ -341,6 +341,7 @@
   flex-direction: column;
   padding-bottom: var(--dl-space-space-fourunits);
   justify-content: center;
+  background-image: url("./media/building6.jpg");
   background-color: var(--dl-color-gray-900);
 }
 .home-max-content-width-container {
