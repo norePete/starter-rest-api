@@ -120,7 +120,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-image: url("media/building2.jpg");
+  background-image: url("./media/building2.jpg");
   background-color: #f1f1f1;
 }
 .home-hero {
@@ -137,6 +137,7 @@
   padding-bottom: var(--dl-space-space-fiveunits);
   justify-content: space-between;
   background-color: #f1f1f1;
+  background-image: url("./media/building2.jpg");
 }
 .home-hero-text-container {
   width: 45%;
@@ -230,6 +231,7 @@
   padding-right: var(--dl-space-space-doubleunit);
   flex-direction: column;
   padding-bottom: var(--dl-space-space-doubleunit);
+  background-image: url("./media/building2.jpg");
 }
 .home-icon-container {
   display: flex;
