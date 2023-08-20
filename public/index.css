@@ -137,7 +137,7 @@
   flex-direction: row;
   padding-bottom: var(--dl-space-space-fiveunits);
   justify-content: space-between;
-  background-color: rgba(50,50,255,0.7);
+  background-color: rgba(50,50,255,0.9);
   color: white;
 }
 .home-hero-text-container {
