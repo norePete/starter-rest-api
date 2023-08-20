@@ -15,6 +15,7 @@ var options = {
 	redirect: false
 }
 
+app.use(express.static('public', options))
 
 // #############################################################################
 // This configures static hosting for files in /public that have the extensions
@@ -74,7 +75,6 @@ app.use('*', (req, res) => {
 })
 
 
-app.use(express.static('public', options))
 
 const port = process.env.PORT || 3000
 
