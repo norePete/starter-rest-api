@@ -15,7 +15,7 @@ var options = {
 	redirect: false
 }
 
-app.use(express.static('public', options))
+app.use(express.static('beam', options))
 
 // #############################################################################
 // This configures static hosting for files in /public that have the extensions
