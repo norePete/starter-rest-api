@@ -137,12 +137,14 @@
   flex-direction: row;
   padding-bottom: var(--dl-space-space-fiveunits);
   justify-content: space-between;
-  background-color: rgba(50,50,255,0.4);
+  background-color: rgba(50,50,255,0.7);
+  color: white;
 }
 .home-hero-text-container {
   width: 45%;
   display: flex;
   align-items: flex-start;
+  color: white;
   flex-direction: column;
 }
 .home-heading2 {
@@ -150,7 +152,7 @@
   margin-bottom: var(--dl-space-space-tripleunit);
 }
 .home-text {
-  color: var(--dl-color-gray-black);
+  color: white;
   margin-bottom: var(--dl-space-space-fiveunits);
 }
 .home-cta-btn-container {
