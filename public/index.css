@@ -137,8 +137,7 @@
   flex-direction: row;
   padding-bottom: var(--dl-space-space-fiveunits);
   justify-content: space-between;
-  background-color: #f1f1f1;
-  background-image: url("./media/building4.jpg");
+  background-color: rgba(50,50,255,0.4);
 }
 .home-hero-text-container {
   width: 45%;
