@@ -7,9 +7,6 @@
 }
 /* =======================================================
 *
-* 		<aside id="fh5co-hero" class="js-fullheight">
-			<div class="flexslider js-fullheight">
-
 * 	Template Style 
 *	Edit this section
 *
@@ -609,7 +606,8 @@ figure {
 
 #fh5co-hero {
   min-height: 700px;
-  background: #fff url(../images/loader.gif) no-repeat center center;
+  background: rgb(18,16,61);
+  background: linear-gradient(153deg, rgba(18,16,61,1) 0%, rgba(99,99,166,1) 35%, rgba(214,226,228,1) 100%);
 }
 #fh5co-hero .btn {
   color: #fff;
@@ -1464,25 +1462,6 @@ figure {
   line-height: 1.8;
 }
 
-.no-js #loader {
-  display: none;
-}
 
-.js #loader {
-  display: block;
-  position: absolute;
-  left: 100px;
-  top: 0;
-}
-
-.fh5co-loader {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  background: url(../images/hourglass.svg) center no-repeat #222222;
-}
 
 /*# sourceMappingURL=style.css.map */
