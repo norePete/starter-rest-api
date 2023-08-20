@@ -7,6 +7,9 @@
 }
 /* =======================================================
 *
+* 		<aside id="fh5co-hero" class="js-fullheight">
+			<div class="flexslider js-fullheight">
+
 * 	Template Style 
 *	Edit this section
 *
@@ -235,7 +238,7 @@ figure {
 .fh5co-cover,
 .fh5co-hero {
   position: relative;
-  height: 800px;
+  height: 90%;
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover,
