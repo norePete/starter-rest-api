@@ -27,9 +27,7 @@ app.get('/', function(req, res) {
     res.send('root');
 });
 app.get('/rotate', function(req, res) {
-
-    fs.readFile('beam/css/dynamic.css')
-    .then(data => {
+    fs.readFile('beam/css/dynamic.css', 'utf8', function(err, data){
         const hexCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
         function getRandomCharacter() {
             const randomIndex = Math.floor(Math.random() * hexCharacters.length);
@@ -45,12 +43,14 @@ app.get('/rotate', function(req, res) {
         random_color = generateRandomHexColor()
         const hex = /#[A-Fa-f0-9]{6}\b/g;
         const modifiedData = data.replace(hex, random_color);
-        return fs.writeFile('beam/css/dynamic.css', modifiedData);
-    })
-    .then(() => {
-    })
-    .catch(err => {
-        console.error(err);
+        fs.writeFile("beam/css/dynamic.css", modifiedData,
+          {
+            encoding: "utf8",
+          },
+          (err) => {
+            if (err)
+              console.log(err);
+        });
     });
     res.send('success');
 });
